@@ -12,6 +12,7 @@ export const GlobalStyles = createGlobalStyle`
     --text-black-700: ${({theme}) => theme.textblack700};
     --text-black-400: ${({theme}) => theme.textblack400};
     --text-white-700: ${({theme}) => theme.textwhite700};
+    --text-white-400: ${({theme}) => theme.textwhite400};
     --light-700: ${({theme}) => theme.light700};
     --light-400: ${({theme}) => theme.light400};
     --dark-700: ${({theme}) => theme.dark700};

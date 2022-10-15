@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { StaticImage } from 'gatsby-plugin-image'
 
 const Meeting = () => {
   return (
@@ -15,7 +16,9 @@ const Meeting = () => {
             </div>
             <div className='location'>
                 <p>At Jos Street 3rd Avenue Gwarimpa Abuja</p>
-                <div className='map'></div>
+                <div className='map'>
+                    <StaticImage src="../../images/maps.webp" alt="A Map" layout='fullWidth' placeholder="blurred" />
+                </div>
             </div>
                 
         </article>
