@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 
+
+
 const HorizontalScrollingElement = ({
   children,
-  scroll = { isScroll: false, dir: "none" },
-  scrollDist = 100,
+  scroll = { isScroll: false, dir: "none", scrollDist: 100},
   isList = false,
 }) => {
   const scrollElemRef = useRef();
@@ -15,13 +16,13 @@ const HorizontalScrollingElement = ({
       if (scroll.dir === "left") {
         console.log("in if left");
         const slider = scrollElemRef.current;
-        slider.scrollLeft = slider.scrollLeft - scrollDist;
+        slider.scrollLeft = slider.scrollLeft - scroll.scrollDist;
 
       }
       if (scroll.dir === "right") {
         console.log("in if right");
         const slider = scrollElemRef.current;
-        slider.scrollLeft = slider.scrollLeft + scrollDist;
+        slider.scrollLeft = slider.scrollLeft + scroll.scrollDist;
 
       }
     }

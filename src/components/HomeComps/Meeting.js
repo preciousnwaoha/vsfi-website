@@ -17,7 +17,7 @@ const Meeting = () => {
             <div className='location'>
                 <p>At Jos Street 3rd Avenue Gwarimpa Abuja</p>
                 <div className='map'>
-                    <StaticImage src="../../images/maps.webp" alt="A Map" layout='fullWidth' placeholder="blurred" />
+                    <StaticImage src="../../images/maps.webp" alt="A Map" layout='fullWidth' placeholder="blurred"  />
                 </div>
             </div>
                 

@@ -6,6 +6,7 @@ import Seo from "../components/Layout/Seo"
 import WhoWeAre from "../components/HomeComps/WhoWeAre"
 import Meeting from "../components/HomeComps/Meeting"
 import Featured from "../components/HomeComps/Featured"
+import Blogs from "../components/Blogs/Blogs"
 
 const IndexPage = () => {
   return (
@@ -22,6 +23,7 @@ const IndexPage = () => {
       <WhoWeAre />
       <Meeting />
       <Featured />
+      <Blogs />
       </MainStyled>
       
     </Layout>
