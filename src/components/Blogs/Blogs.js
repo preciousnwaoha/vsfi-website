@@ -46,14 +46,14 @@ const Blogs = () => {
 
   const handleKeyDownLeft = ev => {
     // check keys if you want
-    if (ev.keyCode == 13) {
+    if (ev.keyCode === 13) {
       this.focus()
     }
   }
 
   const handleKeyDownRight = ev => {
     // check keys if you want
-    if (ev.keyCode == 14) {
+    if (ev.keyCode === 14) {
       this.focus()
     }
   }
@@ -64,12 +64,12 @@ const Blogs = () => {
     <BlogsStyled>
       <h2>Reads</h2>
       <div className="controls">
-        <div onClick={leftScrollHandler} onKeyDown={handleKeyDownLeft}>
+        <button onClick={leftScrollHandler} onKeyDown={handleKeyDownLeft}>
           D
-        </div>
-        <div onClick={rightScrollHandler} onKeyDown={handleKeyDownRight}>
+        </button>
+        <button onClick={rightScrollHandler} onKeyDown={handleKeyDownRight}>
           D
-        </div>
+        </button>
       </div>
       <HorizontalScrollingElement scroll={scroll}>
         {DEFAULT_BLOGS.map((blog, index) => {
@@ -102,7 +102,7 @@ export const BlogsStyled = styled.section`
     align-items: center;
   }
 
-  .controls div {
+  .controls button {
     border: 1px solid var(--primary-700);
     border-radius: 50%;
     width: 35px;
@@ -113,6 +113,10 @@ export const BlogsStyled = styled.section`
     align-items: center;
     justify-content: center;
     cursor: pointer;
+  }
+
+  .controls button:focus, .control button:focus-within {
+    outline: none !important;
   }
 
   .blog {
