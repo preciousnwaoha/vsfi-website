@@ -1,35 +1,51 @@
 import React, { useState } from "react"
 import HorizontalScrollingElement from "../Layout/HorizontalScrollingElement"
 import styled from "styled-components"
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs"
+import {useStaticQuery, graphql} from "gatsby";
+import {GatsbyImage} from "gatsby-plugin-image";
 
-const DEFAULT_BLOGS = [
-  {
-    id: "b1",
-    title: "Essense of Deep Worship",
-    views: 3,
-    createdAt: "15/10/2022",
-    content:
-      "Essense of Deep Worship Essense of Deep Worship Essense of Deep Worship ssense of Deep Worship Essense of Deep Worship Essense of Deep Worship Essense of Deep Worship Essense of Deep Worship",
-  },
-  {
-    id: "b2",
-    title: "Essense of Deep Worship",
-    views: 3,
-    createdAt: "15/10/2022",
-    content:
-      "Essense of Deep Worship Essense of Deep Worship Essense of Deep Worship ssense of Deep Worship Essense of Deep Worship Essense of Deep Worship Essense of Deep Worship Essense of Deep Worship",
-  },
-  {
-    id: "b3",
-    title: "Essense of Deep Worship",
-    views: 3,
-    createdAt: "15/10/2022",
-    content:
-      "Essense of Deep Worship Essense of Deep Worship Essense of Deep Worship ssense of Deep Worship Essense of Deep Worship Essense of Deep Worship Essense of Deep Worship Essense of Deep Worship",
-  },
-]
+export const query = graphql`
+  query {
+    allSanityPost {
+      nodes {
+        author {
+          image {
+            asset {
+              gatsbyImageData
+              altText
+            }
+          }
+          name
+        }
+        body {
+          children {
+            text
+            _type
+            marks
+            _key
+          }
+        }
+        title
+        id
+        mainImage {
+          asset {
+            gatsbyImageData
+          }
+        }
+        publishedAt(locale: "")
+        slug {
+          current
+        }
+        views
+      }
+    }
+  }
+`
 
 const Blogs = () => {
+  const {allSanityPost : {nodes: posts}} = useStaticQuery(query)
+
   const [scroll, setScroll] = useState({
     isScroll: false,
     dir: "none",
@@ -65,21 +81,22 @@ const Blogs = () => {
       <h2>Reads</h2>
       <div className="controls">
         <button onClick={leftScrollHandler} onKeyDown={handleKeyDownLeft}>
-          D
+        <BsChevronLeft />
         </button>
         <button onClick={rightScrollHandler} onKeyDown={handleKeyDownRight}>
-          D
+          <BsChevronRight />
         </button>
       </div>
       <HorizontalScrollingElement scroll={scroll}>
-        {DEFAULT_BLOGS.map((blog, index) => {
+        {posts.map((blog) => {
           return (
             <div key={blog.id} className={"blog"}>
-              <div className="image"></div>
+              {/* <div className="image"></div> */}
+              <GatsbyImage image={blog.mainImage.asset.gatsbyImageData} className="image" alt={blog.title} />
               <div className="text">
                 <h4>{blog.title}</h4>
                 <div className="date-view">
-                  <p className="date">{blog.createdAt}</p>
+                  <p className="date">{blog.publishedAt}</p>
                   <p className="views">{blog.views}</p>
                 </div>
               </div>
@@ -113,6 +130,7 @@ export const BlogsStyled = styled.section`
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    background: transparent;
   }
 
   .controls button:focus, .control button:focus-within {
@@ -133,7 +151,7 @@ export const BlogsStyled = styled.section`
   }
 
   .image {
-    padding-top: 65%;
+    /* padding-top: 65%; */
     border: 1px solid red;
     background: var(--light-700);
   }

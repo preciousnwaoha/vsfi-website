@@ -1,5 +1,8 @@
 import React from 'react'
 import styled from "styled-components"
+import { FiFacebook, FiInstagram, FiTwitter } from "react-icons/fi"
+import { RiFacebookLine, RiInstagramLine, RiTwitterLine } from "react-icons/ri"
+import {SiGooglepodcasts} from "react-icons/si"
 
 const Footer = () => {
   return (
@@ -9,9 +12,10 @@ const Footer = () => {
         <div className='h3-socials'>
           <h3>We are a growing community of virtue</h3>
           <div className="socials">
-            <span>D</span>
-            <span>D</span>
-            <span>D</span>
+            <span><FiFacebook /> </span>
+            <span><FiInstagram /></span>
+            <span><FiTwitter /></span>
+            <span><SiGooglepodcasts /></span>
           </div>
         </div>
         <div className="fellowship">
