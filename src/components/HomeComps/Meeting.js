@@ -1,8 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 import { StaticImage } from 'gatsby-plugin-image'
+import MyMap from "../Utils/MyMap"
 
 const Meeting = () => {
+
+    const defaultMapProps = {
+        position: [51, -1],
+        zoom: 13,
+        markerText: ""
+      }
+
   return (
     <MeetingStyled>
         <article className='wk-meeting' >
@@ -17,7 +25,12 @@ const Meeting = () => {
             <div className='location'>
                 <p>At Jos Street 3rd Avenue Gwarimpa Abuja</p>
                 <div className='map'>
-                    <StaticImage src="../../images/maps.webp" alt="A Map" layout='fullWidth' placeholder="blurred"  />
+                    {/* <StaticImage src="../../images/maps.webp" alt="A Map" layout='fullWidth' placeholder="blurred"  /> */}
+                    <MyMap 
+        // position={[51, -1]} 
+        // zoom={13}
+        // markerText={""}
+    />
                 </div>
             </div>
                 

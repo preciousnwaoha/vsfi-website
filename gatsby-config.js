@@ -33,7 +33,7 @@ module.exports = {
     {
       resolve: `gatsby-source-sanity`,
       options: {
-        projectId: `lo744gy6`,
+        projectId: `lo744gy6`, 
         dataset: `production`,
         // a token with read permissions is required
         // if you have a private dataset
@@ -43,6 +43,12 @@ module.exports = {
         // use `graphqlTag` to specify the tag name. Defaults to `default`.
         graphqlTag: 'default',
       },
+    },
+    {
+      resolve: 'gatsby-plugin-react-leaflet',
+      options: {
+        linkStyles: true // (default: true) Enable/disable loading stylesheets via CDN
+      }
     },
     {
       resolve: `gatsby-plugin-styled-components`,
